@@ -1,52 +1,52 @@
-import java.util.LinkedList;
-import java.util.Queue;
 import java.util.Scanner;
+import java.util.Stack;
 
 public class Main {
     public static void main(String[] args) {
 
-        Scanner buscar_ = new Scanner(System.in);
-        Queue<Integer> fila = new LinkedList<>();
+        Scanner buscar_elemento = new Scanner(System.in);
+        Stack<Integer> pilha_ = new Stack<>();
 
-        int opcao_;
+        int opcao_ ;
 
         do{
 
-            System.out.println("======== MENU FILA =========");
-            System.out.println("1. Adicionar");
-            System.out.println("2. Remover");
-            System.out.println("3. Ver o elemento que está em frente");
-            System.out.println("4. Ver se está vázia");
-            System.out.println("0. Fechar do programa");
+            System.out.println("========== MENU PRINCIPAL DA PILHA ===========");
+            System.out.println("1. ADICIONAR ELEMENTO");
+            System.out.println("2. REMOVER ELEMENTO");
+            System.out.println("3. VISUALIZAR NO TOPO");
+            System.out.println("4. VISUALIZAR SE ESTA VAZIA");
+            System.out.println("0. FECHAR O PROGRAMA");
 
-            opcao_ = buscar_.nextInt();
+            opcao_ = buscar_elemento.nextInt();
 
-            switch (opcao_){
-
+            switch (opcao_) {
                 case 1:
-                    System.out.println("Adiciona um número: ");
-                    fila.add(buscar_.nextInt());
+                    System.out.println(" escreva um número: ");
+                    pilha_.push(buscar_elemento.nextInt());
+
                     break;
                 case 2:
-                    if(!fila.isEmpty())
-                        System.out.println("eleminar elemento: " + fila.poll());
+                    if( !pilha_.isEmpty())
+                        System.out.println("Remover: " + pilha_.pop());
                     else
-                        System.out.println("A fila está vazia");
+                        System.out.println("A pilha está vazia");
                     break;
+
                 case 3:
-                    if(! fila.isEmpty())
-                        System.out.println("visualizar o elemento frente: " + fila.peek());
+                    if(! pilha_.isEmpty())
+                        System.out.println("visualizar o elemento topo: " + pilha_.peek());
                     else
-                         System.out.println("A fila está vazia");
+                        System.out.println("A pilha está vazia");
                     break;
                 case 4:
 
-                     if(fila.isEmpty())
-                         System.out.println(" Sim, a fila está vazia");
-                     else
-                         System.out.println("A fila não está vazia ");
-                     break;
+                    if(pilha_.isEmpty())
+                        System.out.println(" Sim, a pilha está vazia");
+                    else
+                        System.out.println("A pilha não está vazia ");
+                    break;
             }
-        }while (  opcao_ != 0);
+        }while (opcao_ != 0);
     }
 }
